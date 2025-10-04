@@ -1,0 +1,5 @@
+module(
+    name = "ocp-diag-core-cpp",
+    version = "",
+    repo_name = "ocpdiag",
+)
