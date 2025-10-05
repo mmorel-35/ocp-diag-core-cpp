@@ -13,11 +13,8 @@ in "build_deps.bzl".
 
 load("@com_github_grpc_grpc//bazel:grpc_extra_deps.bzl", "grpc_extra_deps")
 load("@com_google_ecclesia//ecclesia/build_defs:deps_second.bzl", "ecclesia_deps_second")
-load("//ocpdiag:java_compat_stub.bzl", "rules_java_dependencies", "rules_java_toolchains")
 
 def load_tertiary_deps():
     """Loads tertiary dependencies of gRPC (deps of gRPC that also have deps)"""
     grpc_extra_deps()
-    rules_java_dependencies()
-    rules_java_toolchains()
     ecclesia_deps_second()

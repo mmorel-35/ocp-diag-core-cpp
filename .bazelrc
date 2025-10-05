@@ -2,11 +2,6 @@ build --cxxopt='-std=c++17'
 build --host_cxxopt='-std=c++17'
 build --incompatible_enable_cc_toolchain_resolution=true
 
-# Use bzlmod by default (recommended for Bazel 8+)
-# To use WORKSPACE mode, pass --enable_workspace --noenable_bzlmod
-# Note: WORKSPACE mode may have compatibility issues with Bazel 8+
-common --enable_bzlmod
-
 # Tell googletest to use absl.
 build --define absl=1
 
