@@ -54,11 +54,9 @@ def load_deps(ocpdiag_package_name = "ocpdiag"):
     maybe(
         http_archive,
         "com_google_absl",
-        url = "https://github.com/abseil/abseil-cpp/archive/64f00b1f4a064e9e140fc4642ccd55c9c2e2e365.zip",  # 2022-11-08
-        strip_prefix = "abseil-cpp-64f00b1f4a064e9e140fc4642ccd55c9c2e2e365",
-        sha256 = "e7c605119f5aefdf3cd0159f2cbc439c2f7d614c99758be32e0258d49201fc4e",
-        patches = ["abseil_patch.diff"],
-        patch_args = ["-p1"],
+        url = "https://github.com/abseil/abseil-cpp/archive/4a2c63365eff8823a5221db86ef490e828306f9d.zip",  # Abseil LTS 20240116.0
+        strip_prefix = "abseil-cpp-4a2c63365eff8823a5221db86ef490e828306f9d",
+        sha256 = "f49929d22751bf70dd61922fb1fd05eb7aec5e7a7f870beece79a6e28f0a06c1",
     )
 
     maybe(
@@ -93,9 +91,24 @@ def load_deps(ocpdiag_package_name = "ocpdiag"):
     maybe(
         http_archive,
         "com_google_protobuf",
-        url = "https://github.com/protocolbuffers/protobuf/releases/download/v21.5/protobuf-all-21.5.tar.gz",
-        strip_prefix = "protobuf-21.5",
-        sha256 = "7ba0cb2ecfd9e5d44a6fa9ce05f254b7e5cd70ec89fafba0b07448f3e258310c",
+        url = "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v29.3.tar.gz",
+        strip_prefix = "protobuf-29.3",
+        sha256 = "008a11cc56f9b96679b4c285fd05f46d317d685be3ab524b2a310be0fbad987e",
+    )
+
+    maybe(
+        http_archive,
+        "rules_cc",
+        urls = ["https://github.com/bazelbuild/rules_cc/releases/download/0.0.16/rules_cc-0.0.16.tar.gz"],
+        sha256 = "bbf1ae2f83305b7053b11e4467d317a7ba3517a12cef608543c1b1c5bf48a4df",
+        strip_prefix = "rules_cc-0.0.16",
+    )
+
+    maybe(
+        http_archive,
+        "rules_java",
+        url = "https://github.com/bazelbuild/rules_java/releases/download/7.12.5/rules_java-7.12.5.tar.gz",
+        sha256 = "17b18cb4f92ab7b94aa343ce78531b73960b1bed2ba166e5b02c9fdf0b0ac270",
     )
 
     maybe(
