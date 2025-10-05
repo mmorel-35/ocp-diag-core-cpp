@@ -3,3 +3,18 @@ module(
     version = "",
     repo_name = "ocpdiag",
 )
+
+# Core dependencies
+# Note: Actual versions may be higher due to Minimum Version Selection (MVS) in bzlmod
+bazel_dep(name = "protobuf", version = "31.1", repo_name = "com_google_protobuf")
+bazel_dep(name = "abseil-cpp", version = "20250512.1", repo_name = "com_google_absl")
+bazel_dep(name = "googletest", version = "1.17.0", repo_name = "com_google_googletest")
+bazel_dep(name = "grpc", version = "1.74.1", repo_name = "com_github_grpc_grpc")
+bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "rules_python", version = "1.0.0")
+bazel_dep(name = "rules_pkg", version = "1.0.1")
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+
+# Additional dependencies (using non_module_dependencies for unavailable modules)
+# Note: Some dependencies like pybind11, ecclesia, riegeli, etc. may need to be 
+# added via non_module_dependencies as they may not be available in BCR
