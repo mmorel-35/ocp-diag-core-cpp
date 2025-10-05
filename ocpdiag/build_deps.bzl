@@ -88,12 +88,15 @@ def load_deps(ocpdiag_package_name = "ocpdiag"):
         build_file = build_path,
     )
 
+    patch_path = "@{}//external:protobuf_workspace_java.patch".format(ocpdiag_package_name)
     maybe(
         http_archive,
         "com_google_protobuf",
         url = "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v29.3.tar.gz",
         strip_prefix = "protobuf-29.3",
         sha256 = "008a11cc56f9b96679b4c285fd05f46d317d685be3ab524b2a310be0fbad987e",
+        patches = [patch_path],
+        patch_args = ["-p1"],
     )
 
     maybe(

@@ -30,19 +30,21 @@ bazel build --enable_bzlmod //...
 
 #### WORKSPACE Mode
 
-WORKSPACE mode is still available but has known limitations with Bazel 8:
+⚠️ **WORKSPACE mode has known compatibility issues with Bazel 8 and Protobuf 29.3+**
 
-```bash
-# Build with WORKSPACE mode
-bazel build --enable_workspace --noenable_bzlmod //...
-```
+Due to breaking changes in Bazel 8 (removal of native `java_proto_library`) and incompatibilities with `rules_java` 7.12.x, WORKSPACE mode cannot currently build with Bazel 8 and Protobuf 29.3.
 
-**Known issues:**
-- WORKSPACE mode with Bazel 8 has compatibility issues with rules_java 7.12.x
-- Protobuf 29.3 requires Bazel 8+ due to use of `paths.is_normalized()`
-- Some targets may not build due to rules_java dependencies
+**Workarounds:**
+1. **Recommended**: Use bzlmod mode (see above)
+2. Use an older version of this codebase with Bazel 7.6.1 and Protobuf 21.5
 
-**Status:** WORKSPACE mode is maintained for backward compatibility but bzlmod is strongly recommended.
+**Technical details:**
+- Protobuf 29.3 requires Bazel 8+ (uses `paths.is_normalized()` introduced in Bazel 8)
+- Bazel 8 removed `native.java_proto_library`
+- `rules_java` 7.12.x (required by Protobuf) tries to reference the removed native rule
+- Patching protobuf's WORKSPACE to skip Java setup causes downstream dependency issues
+
+**Note:** Since Bazel itself is deprecating WORKSPACE mode in favor of bzlmod (removal planned for Bazel 9 in late 2025), migrating to bzlmod is the recommended path forward.
 
 ### Dependencies
 
