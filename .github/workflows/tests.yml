@@ -9,8 +9,6 @@ on:
 jobs:
   api-unittests:
     runs-on: ubuntu-22.04
-    env:
-      USE_BAZEL_VERSION: 7.6.1
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/bazel-container
@@ -21,8 +19,6 @@ jobs:
 
   schema-validation:
     runs-on: ubuntu-22.04
-    env:
-      USE_BAZEL_VERSION: 7.6.1
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/bazel-container
