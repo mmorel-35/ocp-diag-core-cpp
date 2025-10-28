@@ -15,7 +15,7 @@ runs:
       if: ${{ env.ACT }}
       shell: bash
       run: npm install -g @bazel/bazelisk
-    - uses: bazelbuild/setup-bazelisk@v3
+    - uses: bazel-contrib/setup-bazel@0.15.0
       if: ${{ !env.ACT }}
     - name: setup bazel cache
       if: ${{ !env.ACT }}
