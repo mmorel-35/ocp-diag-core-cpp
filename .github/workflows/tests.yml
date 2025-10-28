@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       # bazel 5.0.0 fails with: 'apple_common' value has no field or method 'objc_proto_aspect'
-      USE_BAZEL_VERSION: 4.2.1
+      USE_BAZEL_VERSION: 7.6.1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: ./.github/actions/bazel-container
       - name: unittests
         run: |
@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       # bazel 5.0.0 fails with: 'apple_common' value has no field or method 'objc_proto_aspect'
-      USE_BAZEL_VERSION: 4.2.1
+      USE_BAZEL_VERSION: 7.6.1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: ./.github/actions/bazel-container
       - uses: actions/setup-go@v2
         with:
