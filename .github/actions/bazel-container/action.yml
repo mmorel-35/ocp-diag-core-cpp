@@ -3,7 +3,7 @@ description: setup minimal container for bazel build env
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v5
     - name: install g++12
       shell: bash
       run: |
@@ -15,11 +15,11 @@ runs:
       if: ${{ env.ACT }}
       shell: bash
       run: npm install -g @bazel/bazelisk
-    - uses: bazelbuild/setup-bazelisk@v1
+    - uses: bazelbuild/setup-bazelisk@v3
       if: ${{ !env.ACT }}
     - name: setup bazel cache
       if: ${{ !env.ACT }}
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: "~/.cache/bazel"
         key: bazel
