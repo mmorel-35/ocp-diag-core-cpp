@@ -25,10 +25,11 @@ jobs:
       - uses: actions/setup-go@v6
         with:
           go-version: "1.17.6"
-      # actions/checkout@v3 requires authentication even for fully public repos
-      # so pull the ocp-diag-core validator manually
       - name: pull validator
-        run: git clone https://github.com/opencomputeproject/ocp-diag-core.git --depth=1
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          repository: opencomputeproject/ocp-diag-core
       - name: run validator against examples
         run: |
           OUTPUT="$(bazel run //ocpdiag/core/examples/full_spec)"
