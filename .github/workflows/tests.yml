@@ -10,7 +10,6 @@ jobs:
   api-unittests:
     runs-on: ubuntu-22.04
     env:
-      # bazel 5.0.0 fails with: 'apple_common' value has no field or method 'objc_proto_aspect'
       USE_BAZEL_VERSION: 7.6.1
     steps:
       - uses: actions/checkout@v5
@@ -23,12 +22,11 @@ jobs:
   schema-validation:
     runs-on: ubuntu-22.04
     env:
-      # bazel 5.0.0 fails with: 'apple_common' value has no field or method 'objc_proto_aspect'
       USE_BAZEL_VERSION: 7.6.1
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/bazel-container
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v6
         with:
           go-version: "1.17.6"
       # actions/checkout@v3 requires authentication even for fully public repos
