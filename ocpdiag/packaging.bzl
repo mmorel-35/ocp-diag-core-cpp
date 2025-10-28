@@ -6,6 +6,7 @@
 
 """Bazel rules for building and packaging OCPDiag tests"""
 
+load("@com_google_protobuf//bazel/common:proto_info.bzl", "ProtoInfo")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load("@rules_pkg//:providers.bzl", "PackageFilegroupInfo", "PackageFilesInfo", "PackageSymlinkInfo")
 load("@bazel_skylib//lib:paths.bzl", "paths")
@@ -16,7 +17,6 @@ load(
     "pkg_deb_ocpdiag",
     "pkg_tar_payload",
 )
-load("@rules_proto//proto:defs.bzl", "ProtoInfo")
 
 _OCPDIAG_WORKSPACE = "ocpdiag"
 
