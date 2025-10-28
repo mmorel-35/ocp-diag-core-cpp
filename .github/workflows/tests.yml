@@ -33,6 +33,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
+          path: ocp-diag-core-cpp
           repository: opencomputeproject/ocp-diag-core
       - name: run validator against examples
         run: |
