@@ -30,7 +30,7 @@ See b/260288053 for more information.
 load("@bazel_skylib//lib:paths.bzl", "paths")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load(
-    "@rules_pkg//:providers.bzl",
+    "@rules_pkg//pkg:providers.bzl",
     "PackageArtifactInfo",
     "PackageFilegroupInfo",
     "PackageFilesInfo",
