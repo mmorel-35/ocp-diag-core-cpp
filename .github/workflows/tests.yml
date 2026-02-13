@@ -9,20 +9,16 @@ on:
 jobs:
   api-unittests:
     runs-on: ubuntu-22.04
-    env:
-      USE_BAZEL_VERSION: 7.6.1
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/bazel-container
       - name: unittests
         run: |
-          bazel build //...
-          bazel test //... --test_output=errors
+          bazel build --enable_bzlmod //...
+          bazel test --enable_bzlmod //... --test_output=errors
 
   schema-validation:
     runs-on: ubuntu-22.04
-    env:
-      USE_BAZEL_VERSION: 7.6.1
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/bazel-container
@@ -37,6 +33,6 @@ jobs:
           repository: opencomputeproject/ocp-diag-core
       - name: run validator against examples
         run: |
-          OUTPUT="$(bazel run //ocpdiag/core/examples/full_spec)"
+          OUTPUT="$(bazel run --enable_bzlmod //ocpdiag/core/examples/full_spec)"
           cd ocp-diag-core/validators/spec_validator
           echo "$OUTPUT" | go run . -schema ../../json_spec/output/root.json -

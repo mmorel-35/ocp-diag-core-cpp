@@ -11,12 +11,12 @@ runs:
         sudo apt install -y g++-12
         sudo rm -f /usr/bin/g++
         sudo ln -s /usr/bin/g++-12 /usr/bin/g++
-    - name: install bazel ${{ env.USE_BAZEL_VERSION }}
-      if: ${{ env.ACT }}
-      shell: bash
-      run: npm install -g @bazel/bazelisk
-    - uses: bazel-contrib/setup-bazel@0.15.0
-      if: ${{ !env.ACT }}
+    - name: Setup Bazel
+      uses: bazel-contrib/setup-bazel@0.15.0
+      with:
+        bazelisk-cache: true
+        disk-cache: ${{ github.workflow }}
+        repository-cache: true
     - name: setup bazel cache
       if: ${{ !env.ACT }}
       uses: actions/cache@v4
