@@ -4,7 +4,11 @@
 # license that can be found in the LICENSE file or at
 # https://opensource.org/licenses/MIT.
 
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
 # Common ocpdiag components rules.
+load("//ocpdiag:python.bzl", "pytype_strict_library")
+
 package(default_visibility = ["//visibility:public"])
 
 licenses(["notice"])

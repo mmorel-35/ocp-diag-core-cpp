@@ -8,6 +8,8 @@
 Provides build rules for the OCPDiag Hardware Service Client.
 """
 
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
 licenses(["notice"])
 
 package(
