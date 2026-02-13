@@ -9,7 +9,7 @@
 load("@bazel_skylib//lib:paths.bzl", "paths")
 load("@com_google_protobuf//bazel/common:proto_info.bzl", "ProtoInfo")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
-load("@rules_pkg//:providers.bzl", "PackageFilegroupInfo", "PackageFilesInfo", "PackageSymlinkInfo")
+load("@rules_pkg//pkg:providers.bzl", "PackageFilegroupInfo", "PackageFilesInfo", "PackageSymlinkInfo")
 load(
     "//ocpdiag:debian.bzl",
     "create_description_file",
