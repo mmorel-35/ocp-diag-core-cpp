@@ -4,16 +4,16 @@ module(
     repo_name = "ocpdiag",
 )
 
-# Core dependencies
-bazel_dep(name = "protobuf", version = "28.3", repo_name = "com_google_protobuf")
+# Core dependencies (sorted alphabetically)
 bazel_dep(name = "abseil-cpp", version = "20240116.2", repo_name = "com_google_absl")
-bazel_dep(name = "grpc", version = "1.74.1", repo_name = "com_github_grpc_grpc")
-bazel_dep(name = "rules_cc", version = "0.0.16")
-bazel_dep(name = "rules_python", version = "0.28.0")
-bazel_dep(name = "rules_pkg", version = "1.0.1")
 bazel_dep(name = "bazel_skylib", version = "1.7.0")
+bazel_dep(name = "grpc", version = "1.74.1", repo_name = "com_github_grpc_grpc")
+bazel_dep(name = "protobuf", version = "28.3", repo_name = "com_google_protobuf")
+bazel_dep(name = "rules_cc", version = "0.0.16")
+bazel_dep(name = "rules_pkg", version = "1.0.1")
+bazel_dep(name = "rules_python", version = "0.28.0")
 
-# Dev dependencies (only needed for development/testing)
+# Dev dependencies (only needed for development/testing, sorted alphabetically)
 bazel_dep(name = "googletest", version = "1.15.2", repo_name = "com_google_googletest", dev_dependency = True)
 
 # Additional dependencies (using non_module_dependencies for unavailable modules)

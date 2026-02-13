@@ -8,6 +8,8 @@
 BUILD rules for the OCPDiag Hardware Interface Libraries.
 """
 
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
 licenses(["notice"])
 
 package(default_visibility = ["//visibility:public"])

@@ -5,6 +5,9 @@
 # https://opensource.org/licenses/MIT.
 
 # Common ocpdiag components rules.
+load("//ocpdiag:python.bzl", "pytype_strict_library")
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
 package(default_visibility = ["//visibility:public"])
 
 licenses(["notice"])
